@@ -1,6 +1,6 @@
 # Styrteknik
 PLC-programmering i CoDeSys.
 
-Använda språk: FB, LD, ST.
+Använda språk: FBD, LD, ST.
 
 Laborationer i Styrteknik och andra projekt.
