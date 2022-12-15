@@ -1,0 +1,109 @@
+PROGRAM Prog_ST
+VAR_INPUT
+	Knapp1, Knapp2, Knapp3, Knapp4 : BOOL;
+	Givare1, Givare2, Givare3, Givare4 : BOOL;
+	X15, X16, X17 : BOOL;
+END_VAR
+
+VAR_OUTPUT
+	Lampa1, Lampa2, Lampa3, Lampa4 : BOOL;
+	Hiss_upp, Hiss_ner : BOOL;
+END_VAR
+VAR
+	Ner_till_1, Ner_till_2, Ner_till_3 : BOOL;
+	Upp_till_2, Upp_till_3, Upp_till_4 : BOOL;
+	Hiss : BOOL;
+	Timer1: BOOL;
+	T1: TON;
+	State : INT;
+END_VAR
+
+
+
+
+
+IF Givare2 = FALSE AND Knapp2 = TRUE THEN
+	Lampa2 := TRUE;
+	Hiss_upp := TRUE;
+END_IF;
+
+IF Givare2 = TRUE AND Upp_till_3 = FALSE AND Ner_till_1 = FALSE THEN
+	Hiss_upp := FALSE;
+	Hiss_ner := FALSE;
+	Lampa2 := FALSE;
+	Ner_till_2 := FALSE;
+END_IF;
+
+IF Knapp3 = TRUE AND Givare3 = FALSE THEN
+	Lampa3 := TRUE;
+	Upp_till_3 := TRUE;
+END_IF;
+
+IF Upp_till_3 = TRUE AND Givare3 = FALSE THEN
+	Hiss_upp := TRUE;
+END_IF
+
+IF Givare3 = TRUE AND Upp_till_4 = FALSE AND Ner_till_2 = FALSE THEN
+	Hiss_upp := FALSE;
+	Hiss_ner := FALSE;
+	Lampa3 := FALSE;
+	Upp_till_3 := FALSE;
+	Ner_till_3 := FALSE;
+END_IF
+
+IF Knapp4 = TRUE AND Givare4 = FALSE THEN
+	Lampa4 := TRUE;
+	Upp_till_4 := TRUE;
+END_IF;
+
+IF Upp_till_4 = TRUE AND Givare4 = FALSE THEN
+	Hiss_upp := TRUE;
+END_IF
+
+IF Givare4 = TRUE THEN
+	Hiss_upp := FALSE;
+	Lampa4 := FALSE;
+	Upp_till_4 := FALSE;
+END_IF
+
+IF Knapp1 = TRUE AND Givare1 = FALSE THEN
+	Lampa1 := TRUE;
+	Ner_till_1 := TRUE;
+END_IF;
+
+IF Ner_till_1 = TRUE THEN
+	Hiss_ner := TRUE;
+END_IF
+
+IF Givare1 = TRUE THEN
+	Hiss_ner := FALSE;
+	Lampa1 := FALSE;
+	Ner_till_1 := FALSE;
+END_IF
+
+IF Knapp2 = TRUE AND Givare1 = FALSE AND Givare4 = FALSE THEN
+	Lampa2 := TRUE;
+	Ner_till_2 := TRUE;
+END_IF;
+
+IF Ner_till_2 = TRUE THEN
+	Hiss_ner := TRUE;
+END_IF;
+
+IF Knapp2 = TRUE AND Givare1 = FALSE AND Givare3 = FALSE THEN
+	Lampa2 := TRUE;
+	Ner_till_2 := TRUE;
+END_IF;
+
+IF Ner_till_2 = TRUE THEN
+	Hiss_ner := TRUE;
+END_IF;
+
+IF Knapp3 = TRUE AND Givare1 = FALSE AND Givare2 = FALSE AND Givare3 = FALSE THEN
+	Lampa3 := TRUE;
+	Ner_till_3 := TRUE;
+END_IF;
+
+IF Ner_till_3 = TRUE THEN
+	Hiss_ner := TRUE;
+END_IF;
